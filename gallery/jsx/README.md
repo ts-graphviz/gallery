@@ -1,38 +1,8 @@
-# Gallery
-
-## Process
+# JSX
 
 Example...
 
-```ts
-import { Graph, toDot } from 'ts-graphviz';
-
-const g = new Graph('G');
-
-g.edge(['run', 'intr']);
-g.edge(['intr', 'runbl']);
-g.edge(['runbl', 'run']);
-g.edge(['run', 'kernel']);
-g.edge(['kernel', 'zombie']);
-g.edge(['kernel', 'sleep']);
-g.edge(['kernel', 'runmem']);
-g.edge(['sleep', 'swap']);
-g.edge(['swap', 'runswap']);
-g.edge(['runswap', 'new']);
-g.edge(['runswap', 'runmem']);
-g.edge(['new', 'runmem']);
-g.edge(['sleep', 'runmem']);
-
-toDot(g);
-```
-
-![title](./gallery/process/result.png)
-
-[more...](gallery/process/README.md)
-
-## JSX
-
-Example...
+## Code
 
 ```tsx
 import { Digraph, Node, Subgraph, Edge, DOT, renderToDot } from '@ts-graphviz/react';
@@ -72,15 +42,34 @@ const Example = () => (
 renderToDot(<Example />);
 ```
 
-![title](./gallery/jsx/result.png)
+## Result
 
-[more...](gallery/jsx/README.md)
-
-## Contributing
-
-```bash
-# Create new script
-$ yarn new <your-script-name>
-# Build Gallary
-$ yarn build
+```dot
+digraph {
+  rankdir = "TB";
+  edge [
+    color = "blue",
+    fontcolor = "blue",
+  ];
+  node [
+    shape = "none",
+  ];
+  "nodeA" [
+    shape = "none",
+    label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>left</TD><TD PORT="m">middle</TD><TD PORT="r">right</TD></TR></TABLE>>,
+  ];
+  subgraph "cluster" {
+    labeljust = "l";
+    label = "Cluster";
+    "nodeB" [
+      label = "This is label for nodeB.",
+    ];
+  }
+  // Edge from node A to B
+  "nodeB" -> "nodeA":"m" [
+    label = <<B>A to B</B>>,
+  ];
+}
 ```
+
+![result](./result.png)

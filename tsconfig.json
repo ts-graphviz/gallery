@@ -7,14 +7,12 @@
       "DOM",
       "esnext"
     ],
+    "jsx": "react-jsx",
     "allowJs": true,
     "alwaysStrict": true,
     "strictNullChecks": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "declaration": true
-  },
-  "include": [
-    "gallery/**/*.ts"
-  ]
+  }
 }

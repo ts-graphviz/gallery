@@ -41,6 +41,7 @@ async function main(name: string): Promise<void> {
         const G = digraph('G');
 
         export = toDot(G);
+
       `,
     ),
   ]);

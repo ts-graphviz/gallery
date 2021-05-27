@@ -1,0 +1,25 @@
+digraph {
+  rankdir = "TB";
+  edge [
+    color = "blue",
+    fontcolor = "blue",
+  ];
+  node [
+    shape = "none",
+  ];
+  "nodeA" [
+    shape = "none",
+    label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>left</TD><TD PORT="m">middle</TD><TD PORT="r">right</TD></TR></TABLE>>,
+  ];
+  subgraph "cluster" {
+    labeljust = "l";
+    label = "Cluster";
+    "nodeB" [
+      label = "This is label for nodeB.",
+    ];
+  }
+  // Edge from node A to B
+  "nodeB" -> "nodeA":"m" [
+    label = <<B>A to B</B>>,
+  ];
+}
