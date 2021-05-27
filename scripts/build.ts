@@ -1,11 +1,12 @@
 import yaml from 'js-yaml';
 import _ from 'ts-dedent';
+import { exportToBuffer } from '@ts-graphviz/node';
 import { promisify } from 'util';
 import path from 'path';
 import { Script } from 'vm';
 import globSync from 'glob';
 import fs from 'fs';
-import ch from 'child_process';
+import { optimize } from 'svgo';
 
 const writeFile = promisify(fs.writeFile);
 const readFile = promisify(fs.readFile);
@@ -30,7 +31,10 @@ async function runExample(filename: string): Promise<Result> {
   const dot = script.runInNewContext({ require, filename });
   const p = path.parse(filename);
   await writeFile(`${p.dir}/result.dot`, dot + '\n');
-  ch.execSync(`dot -Tpng -o ${p.dir}/result.png ${p.dir}/result.dot`);
+  const buffer = await exportToBuffer(dot, {
+    format: 'svg',
+  });
+  await writeFile(`${p.dir}/result.svg`, optimize(buffer.toString('utf-8')).data);
   const code = (await readFile(filename, 'utf8')).replace('export = ', '').trimEnd();
   const {
     title = '',
@@ -56,7 +60,7 @@ async function runExample(filename: string): Promise<Result> {
       ${dot}
       \`\`\`
       
-      ![result](./result.png)
+      ![result](./result.svg)
 
     `,
   );
@@ -69,7 +73,7 @@ async function runExample(filename: string): Promise<Result> {
     lang,
     dot,
     filepath: path.relative(process.cwd(), `${p.dir}/README.md`),
-    pngPath: path.relative(process.cwd(), `${p.dir}/result.png`),
+    pngPath: path.relative(process.cwd(), `${p.dir}/result.svg`),
   };
 }
 

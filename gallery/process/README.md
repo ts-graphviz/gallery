@@ -46,4 +46,4 @@ graph "G" {
 }
 ```
 
-![result](./result.png)
+![result](./result.svg)

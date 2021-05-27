@@ -26,7 +26,7 @@ g.edge(['sleep', 'runmem']);
 toDot(g);
 ```
 
-![title](./gallery/process/result.png)
+![title](./gallery/process/result.svg)
 
 [more...](gallery/process/README.md)
 
@@ -72,7 +72,7 @@ const Example = () => (
 renderToDot(<Example />);
 ```
 
-![title](./gallery/jsx/result.png)
+![title](./gallery/jsx/result.svg)
 
 [more...](gallery/jsx/README.md)
 

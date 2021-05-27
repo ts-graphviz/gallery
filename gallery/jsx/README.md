@@ -72,4 +72,4 @@ digraph {
 }
 ```
 
-![result](./result.png)
+![result](./result.svg)
