@@ -1,0 +1,34 @@
+{
+  "name": "@ts-graphviz/gallery",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "ts-node scripts/build gallery",
+    "new": "ts-node scripts/new",
+    "format": "eslint -c .eslintrc.json --ext ts . --fix && prettier --write './**/*.ts'",
+    "lint": "eslint -c .eslintrc.json --ext ts ."
+  },
+  "dependencies": {
+    "@ts-graphviz/node": "^0.4.0",
+    "@types/node": "^15.6.1",
+    "glob": "^7.1.7",
+    "js-yaml": "^4.1.0",
+    "ts-dedent": "^2.1.1",
+    "ts-graphviz": "^0.15.1"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/js-yaml": "^4.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  }
+}

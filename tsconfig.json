@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "importHelpers": true,
+    "target": "ES5",
+    "strict": true,
+    "lib": [
+      "DOM",
+      "esnext"
+    ],
+    "allowJs": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "declaration": true
+  },
+  "include": [
+    "gallery/**/*.ts"
+  ]
+}
