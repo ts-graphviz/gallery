@@ -121,6 +121,10 @@ async function main(dir: string): Promise<void> {
       $ yarn build
       \`\`\`
 
+      ## License
+
+      This software is released under the MIT License, see [LICENSE](./LICENSE).
+
     `,
   );
 }

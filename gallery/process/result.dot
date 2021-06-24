@@ -3,9 +3,7 @@ graph "G" {
   "intr" -- "runbl";
   "runbl" -- "run";
   "run" -- "kernel";
-  "kernel" -- "zombie";
-  "kernel" -- "sleep";
-  "kernel" -- "runmem";
+  "kernel" -- {"zombie" "sleep" "runmem"};
   "sleep" -- "swap";
   "swap" -- "runswap";
   "runswap" -- "new";

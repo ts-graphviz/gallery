@@ -14,9 +14,7 @@ g.edge(['run', 'intr']);
 g.edge(['intr', 'runbl']);
 g.edge(['runbl', 'run']);
 g.edge(['run', 'kernel']);
-g.edge(['kernel', 'zombie']);
-g.edge(['kernel', 'sleep']);
-g.edge(['kernel', 'runmem']);
+g.edge(['kernel', ['zombie', 'sleep', 'runmem']]);
 g.edge(['sleep', 'swap']);
 g.edge(['swap', 'runswap']);
 g.edge(['runswap', 'new']);
@@ -85,3 +83,7 @@ $ yarn new <your-script-name>
 # Build Gallary
 $ yarn build
 ```
+
+## License
+
+This software is released under the MIT License, see [LICENSE](./LICENSE).
