@@ -2,6 +2,7 @@ import { Graph, toDot } from 'ts-graphviz';
 
 const g = new Graph('G');
 
+g.set('layout', 'neato');
 g.edge(['run', 'intr']);
 g.edge(['intr', 'runbl']);
 g.edge(['runbl', 'run']);
